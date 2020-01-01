@@ -1,0 +1,16 @@
+Package: SC19027
+Type: Package
+Title: The R package for StatComp Course by 19027
+Version: 1.0
+Date: 2019-12-31
+Author: Chen Shuyue
+Maintainer: Chen Shuyue <csy619@mail.ustc.edu.cn>
+Description: The package includes a data generation function and linear regression function for scaled MCP or SCAD.It also includes all my homework answers.
+License: GPL (>= 2)
+Imports: Rcpp (>= 1.0.3),picasso,microbenchmark,MASS,knitr,rmarkdown,boot,bootstrap,DAAG,Ball,parallel
+LinkingTo: Rcpp
+Encoding: UTF-8
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr
+URL: http://github.com/chensyustc/SC19027
+BugReports: http://github.com/chensyustc/SC19027/issues
