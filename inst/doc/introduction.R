@@ -1,5 +1,5 @@
 ## ----eval=FALSE---------------------------------------------------------------
-#  datageneration<-function(n=200,p=2000,r0=0.5){
+#  datageneration<-function(n,p,r0){
 #    S <- matrix(0,p,p)+1*diag(p)
 #    for(i in 1:50){
 #      for(j in 1:50){
@@ -14,6 +14,18 @@
 #    Y <- X%*%true_beta+rnorm(n)
 #    return(list(X=X, Y=c(Y), true_beta = true_beta))
 #  }
+
+## ----eval=TRUE----------------------------------------------------------------
+library(SC19027)
+n<-200;p<-2000
+r0<-0.5
+data<-datageneration(n,p,r0)
+X<-data$X
+Y<-data$Y
+beta<-data$true_beta
+round(X[1:10,1:10],3)
+round(Y[1:10],3)
+round(beta[1:10],3)
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  scalescad_mcp<-function(X,y,lam0,method){
@@ -46,7 +58,7 @@
 library(SC19027)
 n<-200;p<-2000
 set.seed(123)
-data<-datageneration(n,p,0)
+data<-datageneration(n,p,0.5)
 X<-data$X
 Y<-data$Y
 lam0<-sqrt(2*log(p)/n)

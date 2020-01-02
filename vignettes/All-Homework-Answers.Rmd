@@ -1464,7 +1464,7 @@ sapply(trials,'[[',3)
 
 Implement mcsapply(), a multicore version of sapply(). Can you implement mcvapply(), a parallel version of vapply()? Why or why not?
 
-```{r}
+```{r,eval=FALSE}
 #Implement mcsapply()
 library(parallel)
 num_cores = detectCores()
@@ -1473,9 +1473,6 @@ mcsapply = function(cluster,X,FUN,...){
  res = parLapply(cluster,X,FUN,...) 
  simplify2array(res)
 }
-fun <- function(x) return (x+1)
-system.time(res <- sapply(1:5000000,fun))
-system.time(res <- mcsapply(cluster,1:5000000,fun))
 stopCluster(cluster)
 ```
 

@@ -971,19 +971,16 @@ sapply(trials,function(x) x$p.value)
 #Extra challenge: get rid of the anonymous function by using [[ directly.
 sapply(trials,'[[',3)
 
-## -----------------------------------------------------------------------------
-#Implement mcsapply()
-library(parallel)
-num_cores = detectCores()
-cluster = makePSOCKcluster(num_cores)
-mcsapply = function(cluster,X,FUN,...){
- res = parLapply(cluster,X,FUN,...) 
- simplify2array(res)
-}
-fun <- function(x) return (x+1)
-system.time(res <- sapply(1:5000000,fun))
-system.time(res <- mcsapply(cluster,1:5000000,fun))
-stopCluster(cluster)
+## ----eval=FALSE---------------------------------------------------------------
+#  #Implement mcsapply()
+#  library(parallel)
+#  num_cores = detectCores()
+#  cluster = makePSOCKcluster(num_cores)
+#  mcsapply = function(cluster,X,FUN,...){
+#   res = parLapply(cluster,X,FUN,...)
+#   simplify2array(res)
+#  }
+#  stopCluster(cluster)
 
 ## -----------------------------------------------------------------------------
 ## R function for Exercise 9.4
